@@ -3,7 +3,7 @@ var humanScore = 0;
 var computerScore = 0;
 
 
-function getComputerChoice () {
+function getComputerChoice() {
     if (Math.random() <= (1 / 3)) {
         return "rock";
     }
@@ -15,7 +15,7 @@ function getComputerChoice () {
     }
 }
 
-function getHumanChoice () {
+function getHumanChoice() {
     let userInput = prompt("Rock, Paper, or Scissors?");
     
     if (userInput == "rock") {
@@ -29,7 +29,7 @@ function getHumanChoice () {
     }
 }
 
-function playRound (humanChoice, computerChoice) {
+function playRound(humanChoice, computerChoice) {
     let human = humanChoice.toLowerCase();
     let computer = computerChoice.toLowerCase();
 
@@ -68,3 +68,19 @@ function playRound (humanChoice, computerChoice) {
     }
 }
 
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection);
+    }
+
+    if (humanScore > computerScore) {
+        console.log(`You win :) ${humanScore} to ${computerScore}!`);
+    }
+    else {
+        console.log(`You lose :( ${humanScore} to ${computerScore}!`);
+    }
+
+}
