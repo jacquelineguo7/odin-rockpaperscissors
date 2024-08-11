@@ -17,6 +17,8 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     let userInput = prompt("Rock, Paper, or Scissors?");
+    let strInput = userInput.toString();
+    let modInput = strInput.toLowerCase();
     
     if (userInput == "rock") {
         return "rock";
@@ -27,11 +29,20 @@ function getHumanChoice() {
     else if (userInput == "scissors") {
         return "scissors";
     }
+    else {
+        return;
+    }
 }
 
 function playRound(humanChoice, computerChoice) {
-    let human = humanChoice.toLowerCase();
-    let computer = computerChoice.toLowerCase();
+    let human = humanChoice;
+    let computer = computerChoice;
+
+    // let lc_human = human.toLowerCase();
+    // let lc_computer = computer.toLowerCase();
+
+    console.log(`Your choice: ${human}`);
+    console.log(`Computer choice: ${computer}`);
 
     if (human == computer) {
         console.log(`Draw! ${human} and ${computer} are the same.` )
@@ -70,6 +81,7 @@ function playRound(humanChoice, computerChoice) {
 
 function playGame() {
     for (let i = 0; i < 5; i++) {
+        console.log("----------------------------");
         let humanSelection = getHumanChoice();
         let computerSelection = getComputerChoice();
 
@@ -77,10 +89,15 @@ function playGame() {
     }
 
     if (humanScore > computerScore) {
-        console.log(`You win :) ${humanScore} to ${computerScore}!`);
+        console.log(`You win :D ${humanScore} to ${computerScore}!`);
+    }
+    else if (humanScore < computerScore) {
+        console.log(`You lose :( ${humanScore} to ${computerScore}!`);
     }
     else {
-        console.log(`You lose :( ${humanScore} to ${computerScore}!`);
+        console.log(`Tie! :) ${humanScore} to ${computerScore}!`);
     }
 
 }
+
+playGame();
